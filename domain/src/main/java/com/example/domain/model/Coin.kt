@@ -1,7 +1,7 @@
 package com.example.domain.model
 
 import com.example.data.remote.dto.Bpi
-import com.example.mycryptoapp.data.remote.dto.Time
+import com.example.data.remote.dto.Time
 
 data class Coin(
     val id: String,

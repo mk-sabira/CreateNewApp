@@ -1,4 +1,4 @@
-package com.example.mycryptoapp.data.remote.dto
+package com.example.data.remote.dto
 
 data class Time(
     val updated: String,

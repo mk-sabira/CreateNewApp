@@ -1,9 +1,9 @@
-package com.example.mycryptoapp.data.remote.dto
+package com.example.data.remote.dto
 
 data class EUR(
-    val code: String,
-    val description: String,
-    val rate: String,
-    val rate_float: Double,
-    val symbol: String
+    val code: String? = null,
+    val description: String? = null,
+    val rate: String? = null,
+    val rate_float: Double? = null,
+    val symbol: String? = null
 )

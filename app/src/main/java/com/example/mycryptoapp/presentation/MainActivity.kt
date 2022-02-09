@@ -3,34 +3,66 @@ package com.example.mycryptoapp.presentation
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.data.remote.CoinDeskApi
+import com.example.domain.model.CoinDto
 import com.example.mycryptoapp.R
+import com.example.mycryptoapp.common.App
 import com.example.mycryptoapp.common.Constants.BASE_URL
+import com.example.mycryptoapp.databinding.ActivityMainBinding
+import com.example.mycryptoapp.presentation.coin_list.CoinAdapter
+import com.example.mycryptoapp.presentation.coin_list.CoinViewModel
+import com.example.mycryptoapp.presentation.coin_list.CoinViewModelFactory
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
-    val TAG = "TAG"
+//    val TAG = "TAG"
+
+    @Inject
+    lateinit var viewModelFactory: CoinViewModelFactory
+
+    private lateinit var viewModel: CoinViewModel
+    lateinit var coinAdapter: CoinAdapter
+    val coinList = ArrayList<CoinDto>()
+
+    lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val textView = findViewById<TextView>(R.id.textView)
+        (applicationContext as App).appComponent.inject(this)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(CoinViewModel::class.java)
 
-        val api = Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-            .create(CoinDeskApi::class.java)
-        lifecycleScope.launch(Dispatchers.Main) {
-            val response = api.getCoins()
-            val coins = response.body()
-            textView.text = coins?.toString()
+        coinAdapter = CoinAdapter()
+        binding.rv.adapter = coinAdapter
+
+
+        lifecycleScope.launch {
+            viewModel.getCoin()
         }
+
+        viewModel._liveData.observe(this, Observer {
+
+            val coinName = CoinDto(it.chartName, it.time, it.disclaimer, it.bpi)
+
+            coinList.add(coinName)
+            coinAdapter.setListCoins(coinList)
+
+        })
+
+
     }
 
 }

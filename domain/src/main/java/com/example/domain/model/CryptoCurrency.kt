@@ -1,6 +1,6 @@
-package com.example.data.remote.dto
+package com.example.domain.model
 
-data class USD(
+data class CryptoCurrency(
     val code: String? = null,
     val description: String? = null,
     val rate: String? = null,

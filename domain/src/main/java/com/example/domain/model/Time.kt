@@ -1,4 +1,4 @@
-package com.example.data.remote.dto
+package com.example.domain.model
 
 data class Time(
     val updated: String,

@@ -19,7 +19,7 @@ class CoinViewModel(val coin: GetCoinsUseCase) : ViewModel() {
         viewModelScope.launch {
             val response = coin.getCoin()
 
-            if (response!!.isSuccessful) {
+            if (response.isSuccessful) {
                 _mLiveData.postValue(response.body())
             } else {
                 Log.e("Response Error", "something went wrong")

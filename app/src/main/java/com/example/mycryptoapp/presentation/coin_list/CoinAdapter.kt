@@ -1,20 +1,15 @@
 package com.example.mycryptoapp.presentation.coin_list
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.model.CoinDto
-import com.example.mycryptoapp.R
 import com.example.mycryptoapp.databinding.ItemCoinViewHolderBinding
 
-class CoinAdapter() : RecyclerView.Adapter<CoinAdapter.CoinViewHolder>() {
+class CoinAdapter: RecyclerView.Adapter<CoinAdapter.CoinViewHolder>() {
 
     var dataSet = ArrayList<CoinDto>()
 
-    @SuppressLint("NotifyDataSetChanged")
     fun setListCoins(list: List<CoinDto>) {
         this.dataSet = list as ArrayList<CoinDto>
         notifyDataSetChanged()
@@ -22,7 +17,6 @@ class CoinAdapter() : RecyclerView.Adapter<CoinAdapter.CoinViewHolder>() {
 
     inner class CoinViewHolder(val binding: ItemCoinViewHolderBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        @SuppressLint("ResourceAsColor")
         fun onBind(currencyData: CoinDto) {
 
             binding.cryptoNameTv.text = currencyData.chartName

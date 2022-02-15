@@ -26,14 +26,12 @@ import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
-//    val TAG = "TAG"
-
     @Inject
     lateinit var viewModelFactory: CoinViewModelFactory
 
     private lateinit var viewModel: CoinViewModel
-    lateinit var coinAdapter: CoinAdapter
-    val coinList = ArrayList<CoinDto>()
+    private lateinit var coinAdapter: CoinAdapter
+    private val coinList = ArrayList<CoinDto>()
 
     lateinit var binding: ActivityMainBinding
 

@@ -2,7 +2,7 @@ package com.example.mycryptoapp.di
 
 import com.example.data.remote.CoinDeskApi
 import com.example.data.repository.CoinRepositoryImpl
-import com.example.domain.repository.CoinRepository
+import com.example.data.repository.CoinRepository
 import com.example.mycryptoapp.common.Constants.BASE_URL
 import dagger.Module
 import dagger.Provides

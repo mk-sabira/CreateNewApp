@@ -1,6 +1,6 @@
 package com.example.data.remote
 
-import com.example.domain.model.CoinDto
+import com.example.data.model.CoinDto
 import retrofit2.Response
 import retrofit2.http.GET
 

@@ -3,7 +3,7 @@ package com.example.mycryptoapp.presentation.coin_list
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.domain.model.CoinDto
+import com.example.data.model.CoinDto
 import com.example.mycryptoapp.databinding.ItemCoinViewHolderBinding
 
 class CoinAdapter: RecyclerView.Adapter<CoinAdapter.CoinViewHolder>() {

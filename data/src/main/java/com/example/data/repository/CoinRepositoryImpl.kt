@@ -1,8 +1,7 @@
 package com.example.data.repository
 
 import com.example.data.remote.CoinDeskApi
-import com.example.domain.model.CoinDto
-import com.example.domain.repository.CoinRepository
+import com.example.data.model.CoinDto
 import retrofit2.Response
 
 class CoinRepositoryImpl(

@@ -1,6 +1,6 @@
-package com.example.domain.model
+package com.example.data.model
 
-data class GBP(
+data class EUR(
     val code: String? = null,
     val description: String? = null,
     val rate: String? = null,

@@ -1,7 +1,8 @@
 package com.example.domain.use_case
 
-import com.example.domain.model.CoinDto
-import com.example.domain.repository.CoinRepository
+
+import com.example.data.model.CoinDto
+import com.example.data.repository.CoinRepository
 import retrofit2.Response
 
 class GetCoinsUseCase(val repository: CoinRepository) {

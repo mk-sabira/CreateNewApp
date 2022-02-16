@@ -1,6 +1,6 @@
-package com.example.domain.repository
+package com.example.data.repository
 
-import com.example.domain.model.CoinDto
+import com.example.data.model.CoinDto
 import retrofit2.Response
 
 interface CoinRepository {

@@ -1,4 +1,4 @@
-package com.example.domain.model
+package com.example.data.model
 
 data class USD(
     val code: String? = null,

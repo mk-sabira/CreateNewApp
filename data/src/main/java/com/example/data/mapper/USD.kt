@@ -1,6 +1,6 @@
-package com.example.data.model
+package com.example.data.mapper
 
-data class GBP(
+data class USD(
     val code: String? = null,
     val description: String? = null,
     val rate: String? = null,

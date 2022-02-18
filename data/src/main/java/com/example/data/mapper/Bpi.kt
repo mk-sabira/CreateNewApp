@@ -1,4 +1,4 @@
-package com.example.data.model
+package com.example.data.mapper
 
 data class Bpi(
     val EUR: EUR,
